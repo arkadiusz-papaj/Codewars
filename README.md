@@ -20,7 +20,7 @@
 - 6 kyu :yellow_circle: [Create Phone Number](https://www.codewars.com/kata/525f50e3b73515a6db000b83) - [C++](6kyu/create-phone-number.cpp)
 - 6 kyu :yellow_circle: [Find the odd int](https://www.codewars.com/kata/54da5a58ea159efa38000836) - [C++](6kyu/find-the-odd-int.cpp)
 
-- 7 kyu :white_circle: [You're a square!](https://www.codewars.com/kata/54c27a33fb7da0db0100040e) - [C++](7kyu/youre-a-square!.cpp)
+- 7 kyu :white_circle: [You're a square!](https://www.codewars.com/kata/54c27a33fb7da0db0100040e) - [C++](7kyu/youre-a-square.cpp), [Rust](7kyu/youre-a-square.rs)
 - 7 kyu :white_circle: [Binary Addition](https://www.codewars.com/kata/551f37452ff852b7bd000139) - [C++](7kyu/binary-addition.cpp)
 - 7 kyu :white_circle: [Beginner Series #3 Sum of Numbers](https://www.codewars.com/kata/55f2b110f61eb01779000053) - [Rust](7kyu/beginner-series-3-sum-of-numbers.rs)
 
