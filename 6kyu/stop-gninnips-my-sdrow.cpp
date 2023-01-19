@@ -1,24 +1,25 @@
 #include <sstream>
-std::string spinWords(const std::string &str)
+#include <algorithm>
+
+[[nodiscard]] auto spinWords(const std::string &str) -> std::string
 {
   if (str.size() == 0) return "";
   
-  std::stringstream iss(str);
-  std::stringstream ss;
-  std::string word("");
+  std::stringstream iss{str};
+  std::string result;
+  std::string word{""};
+  const uint8_t min_word_size_to_reverse = 5;
   
   while(iss >> word)
   {
-    if (word.size() >= 5)
+    if (word.size() >= min_word_size_to_reverse)
     {
         //ss << std::string(word.rbegin(), word.rend());
       std::reverse(word.begin(), word.end());
-      ss << word;
     }
-    else ss << word;
-    
-    ss << " ";
+    result += word + " ";
   }
-  return ss.str().substr(0, ss.str().find_last_of(" "));
-  //return ss.str().pop_back();
+  
+  result.pop_back();
+  return result;
 }// spinWords

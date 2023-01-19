@@ -1,16 +1,13 @@
 #include <string>
-#include <sstream>
 
-std::string createPhoneNumber(const int arr [10]){
-  std::stringstream ss("");
-  
-  ss << "(";
-  for (int i = 0; i < 10; i++)
+[[nodiscard]] auto createPhoneNumber(const int arr [10]) -> std::string
+{
+  std::string phone_number {"(...) ...-...."};
+
+  for (size_t i = 0, idx = 0; i < phone_number.size(); i++)
   {
-    ss << arr[i];
-    if (i == 2) ss << ") ";
-    else if (i == 5) ss << "-";
+    if (phone_number.at(i) == '.') phone_number.replace(i, 1, std::to_string(arr[idx++]));
   }
-  
-  return ss.str();
+
+  return phone_number;
 }

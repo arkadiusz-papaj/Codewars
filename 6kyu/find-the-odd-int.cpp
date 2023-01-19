@@ -1,17 +1,15 @@
 #include <vector>
-#include <map>
+#include <algorithm>
 
-int findOdd(const std::vector<int>& numbers){
-  std::map<int, int> m;
-  
-  for (auto & element : numbers)
+[[nodiscard]] auto findOdd(const std::vector<int>& numbers) -> int
+{
+  for (const auto& elem : numbers)
   {
-    auto [it, success] = m.insert(std::pair{element, 1});
-    if (success == false) m[element] +=1;
+    if(std::count(numbers.begin(), numbers.end(), elem) % 2 != 0)
+    {
+      return elem;
+    }
   }
-  
-  for (auto it = m.begin(); it != m.end(); ++it)
-  {
-    if (it->second % 2 != 0) return it->first;
-  }
+
+  return 0;
 }

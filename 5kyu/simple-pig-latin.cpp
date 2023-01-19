@@ -1,24 +1,23 @@
 #include <sstream>
-std::string pig_it(std::string str)
+#include <utility>
+
+[[nodiscard]] auto pig_it(std::string str) -> std::string
 {
-    std::stringstream ss(str);
-    std::string word;
-    std::string out("");
+    std::stringstream ss{std::move(str)};
+    std::string word{""};
+    std::string piged{""};
   
     while (ss >> word)
     {
-        if (word.size() == 1 && word.find_first_of(".,!?:;") != std::string::npos)
+        if (word.find_first_of(".,!?:;") == std::string::npos)
         {
-          out += word + " ";
-          continue;
+          word.push_back(word.front());
+          word.append("ay");
+          word.erase(word.begin());
         }
-      
-        word.push_back(word.front());
-        word.append("ay");
-        word.erase(word.begin());
-        out += word + " ";
+        piged += word + " ";
     }
   
-    out.pop_back();
-    return out;
+    piged.pop_back();
+    return piged;
 }

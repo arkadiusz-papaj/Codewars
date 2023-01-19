@@ -15,7 +15,7 @@ struct adder
   
     operator T() const {return sum;}
   
-    friend std::ostream &operator<<( std::ostream &output, const adder<T> &obj )
+    friend std::ostream& operator<<(std::ostream& output, const adder<T>& obj)
     { 
       output << obj.sum;
       return output;            

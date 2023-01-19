@@ -1,15 +1,17 @@
 #include <numeric>
 #include <vector>
 
-std::vector<int> tribonacci(std::vector<int> signature, int n)
+[[nodiscard]] auto tribonacci(std::vector<int> signature, int n) -> std::vector<int>
 {
     if (n <= 0) return {};
-  
-    std::vector<int> result = signature;
-    for (auto i = 0; i < n - (int)signature.size(); i++)
+    if (n < 3) signature.resize(n);
+
+    auto result_size = static_cast<int>(signature.size());
+
+    for (auto i = 0; i < n - result_size; i++)
     {
-        result.push_back(std::accumulate(result.begin() + i, result.end(), 0));
+        signature.push_back(std::accumulate(signature.begin() + i, signature.end(), 0));
     }
-    if (n < (int)result.size()) result.resize(n);
-    return result;
+
+    return signature;
 }
